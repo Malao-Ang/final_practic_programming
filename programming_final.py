@@ -250,3 +250,68 @@ def xo():
 ox()
 print('------------')
 xo()
+
+def G (n,m):
+  if m>n:
+    return -1
+  if m==n :
+    return 1
+  else:
+    return m*G(n,m+1)
+
+#main
+n = int(input())
+m = int(input())
+G(n,m)
+
+def gcd (x,y):
+  if x<y:
+    return gcd(y,x)
+  elif y==0:
+    return x
+  else:
+    return gcd(y,x%y)
+
+#main
+x = int(input())
+y = int(input())
+gcd(x,y)
+
+def f(x,y):
+  if x>y:
+    return f(x-1,y+1)+2
+  elif y>x:
+    return f(x,y-1)+1
+  elif x==y:
+    return 1
+
+#main
+x = int(input())
+y = int(input())
+f(x,y)
+
+#กระต่ายอ้วน
+n_w = [0]*n
+n_w_ = [0]*n
+w = 0
+n = int(input())
+sum = 0
+over = []
+count = 0
+for i in range(n):
+  n_w[i] = input().strip()
+  n_w_[i] = n_w[i].split(' ')
+  w = int(n_w_[i][1])
+  '''print(w)
+  print(type(w))'''
+
+  if w > sum :
+    over = n_w[i]
+    sum = w
+    '''print(sum)
+    print(over)'''
+  if w > 15 :
+    count += 1
+
+print(over)
+print(count)
